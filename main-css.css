@@ -1,0 +1,83 @@
+/*### TABLE OF CONTENT ###*/
+
+/*
+-- General setup (root, fonts import)
+-- Colors variables
+-- Font's definition and sizes
+-- Buttons and SVG
+-- Header bar
+-- HOME
+---- Section 1
+---- Section 2
+---- Section 3
+---- Section 4
+-- Footer
+*/
+
+
+
+/*### GENERAL SETUP (root, fonts import) ###*/
+
+:root{
+  --colorful: #64ffda;
+  --dark-background: ;
+  --main-text: #ffffff;
+
+}
+
+*{
+  font-family: 'Spartan', sans-serif;
+  line-height: normal;
+}
+
+html {
+    box-sizing: border-box;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+body{
+  display: block;
+  padding: 0;
+  margin: 0;
+  background: rgb(0,0,0);
+  background: -moz-linear-gradient(152deg, rgba(0,0,0,1) 19%, rgba(149,1,146,1) 100%);
+  background: -webkit-linear-gradient(152deg, rgba(0,0,0,1) 19%, rgba(149,1,146,1) 100%);
+  background: linear-gradient(152deg, rgba(0,0,0,1) 19%, rgba(149,1,146,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#950192",GradientType=1);
+}
+
+
+/*### Colors ###*/
+
+
+
+/*### Font's definition and sizes ###*/
+
+
+/*### Buttons and SVG ###*/
+
+
+/*### Header bar ###*/
+
+
+/*### HOME ###*/
+
+
+/* Section 1*/
+
+
+/* Section 2*/
+
+
+/* Section 3*/
+
+
+/* Section 4*/
+
+
+/* Section 5*/
+
+
+
+/*### Footer ###*/

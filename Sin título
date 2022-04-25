@@ -1,0 +1,25 @@
+
+<!--MODIFICAR LEYENDA DE CUOTAS-->
+<script>
+  //ACÁ SE MODIFICA EL TEXTO
+  const nuevaLeyendaDeCuotas = "Hasta 24 cuotas";
+
+  //A partir de acá no tocar
+  const nuevoElementoProducto = `<div class="js-max-installments product-installments">${nuevaLeyendaDeCuotas}</div>`;
+  const nuevoElementoCarrito = `<div class="js-installments-cart-total font-body pull-right text-right m-top-quarter clear-both">${nuevaLeyendaDeCuotas}</div>`;
+
+  function cambiarLeyendaCuotas(){
+    $("strong.js-installment-amount.installment-amount:contains('24')").closest(".js-max-installments-container.installments").replaceWith(nuevoElementoProducto);
+  }
+
+  $(document).ready(cambiarLeyendaCuotas);
+
+</script>
+<style>
+/*Ocultar leyenda de carrito ajax para luego insertar una personalizada*/
+  form#ajax-cart-details div.js-installments-cart-total{
+    display: none !important;
+  }
+
+</style>
+<!--FIN DE MODIFICAR LEYENDA DE CUOTAS-->

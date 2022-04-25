@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<!-- saved from url=(0174)chrome-extension://hdlajobndamjlloioebnannnlbopndee/popup.html?isAliExpress=false&isSpocket=false&isItem=false&showBulkImportProcess=false&shouldBulkImport=false&isList=false -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title></title>
+  <style>.loginError {
+    font-family: Avenir;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #e24444;
+    text-align: left;
+}
+
+#invalidEmail {
+    font-family: Avenir;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: block;
+    line-height: 30px;
+    height: 30px;
+}
+
+#loginError {
+    font-family: Avenir;
+    margin-bottom: 6px;
+    margin-left: 2px;
+    line-height: 30px;
+    height: 30px;
+}
+
+#password {
+    font-family: Avenir;
+}
+
+.or {
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.001em;
+    color: #081f40;
+    margin-top: 40px;
+    position: relative;
+    text-align: center;
+}
+
+.or:after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 55%;
+    right: 0%;
+    background: #d8d8d8;
+    height: 1px;
+}
+
+.or:before {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0%;
+    right: 55%;
+    background: #d8d8d8;
+    height: 1px;
+}
+
+form {
+    font-family: Avenir;
+    position: relative;
+}
+
+.facebookButton,
+.googleButton {
+    font-family: Avenir;
+    background: #ffffff;
+    /* border */
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px 50px;
+    height: 48px;
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 24px;
+    color: #081f40;
+    text-decoration: none !important;
+}
+
+.facebookButton span,
+.googleButton span {
+    font-size: 16px;
+    font-family: Avenir;
+    font-style: normal;
+    letter-spacing: 0.0015em;
+    color: #081f40;
+    line-height: 28px;
+}
+
+.facebookButton {
+    margin-bottom: 6px;
+}
+
+.facebookButton img,
+.googleButton img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 4px;
+    margin-right: 8px;
+}
+
+div.forgot {
+    height: 40px;
+    margin-top: 10px;
+}
+
+div.forgot a {
+    font-family: Avenir;
+    text-align: right;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    color: #784ddd;
+    font-style: normal;
+    display: block;
+    position: relative;
+}
+
+#loginButton {
+    margin-top: 25px;
+}
+
+form div {
+    height: auto;
+}
+</style><style>@font-face {
+    font-family: 'Avenir-Roman';
+    src: url(Avenir-Roman.otf);
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url(AvenirLTStd-Book.otf);
+}
+
+html {
+    overflow: hidden;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border: 1px solid #784ddd !important;
+    box-shadow: 0 0 3px #784ddd !important;
+    -moz-box-shadow: 0 0 3px #784ddd !important;
+    -webkit-box-shadow: 0 0 3px #784ddd !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+}
+
+.setting.drp {
+    position: relative;
+}
+
+.setting.drp select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.setting.drp:after {
+    content: '▼';
+    font-family: Avenir;
+    color: #081f40;
+    right: 11px;
+    top: 35px;
+    padding: 0px 0px 0px;
+    position: absolute;
+    pointer-events: none;
+    font-size: 10px;
+}
+
+#container {
+    background-color: #ffffff;
+    overflow: hidden;
+    padding: 0px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    border: 0px;
+    font-style: normal;
+    font-family: Avenir;
+}
+
+#tabmenu {
+    display: flex;
+    overflow: hidden;
+}
+#tabmenu div {
+    flex: auto;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+#tabmenu div span {
+    font-size: 14px;
+    font-family: Avenir;
+    font-weight: 500;
+    line-height: 30px;
+    color: #4b5b72;
+    letter-spacing: 0.004em;
+}
+
+#tabmenu div.active span {
+    color: #784ddd;
+    font-weight: 800;
+}
+
+#tabmenu div.active span:after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 20%;
+    right: 20%;
+    background: #784ddd;
+    height: 4px;
+    border-radius: 30px;
+}
+
+.textcontainer {
+    padding-top: 34px;
+}
+
+.textcontainer p.title {
+    font-size: 20px;
+    font-family: Avenir;
+    font-weight: 800;
+    font-style: normal;
+    line-height: 28px;
+    letter-spacing: 0.0015em;
+    color: #081f40;
+    margin-top: 20px;
+}
+
+.textcontainer.resetpassword .back {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+.textcontainer p.heading {
+    font-weight: 800;
+    color: #081f40;
+    margin-top: 26px;
+}
+
+.textcontainer p.heading.importsuccess {
+    font-family: Avenir;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 27px;
+    letter-spacing: 0.0015em;
+    text-align: center;
+    color: #081f40;
+}
+
+.textcontainer p.heading.importsuccess img {
+    margin-top: 0px;
+    margin-left: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.textcontainer p.heading img {
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.textcontainer p {
+    font-size: 14px;
+    color: #4b5b72;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.0025em;
+    text-align: left;
+    margin-top: 12px;
+    font-family: 'Avenir';
+}
+.textcontainer a {
+    color: #8a2be2;
+    display: block;
+    text-align: center;
+    font-weight: 700;
+}
+.textcontainer ul.instructions {
+    text-align: left;
+    font-size: 13px;
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.textcontainer ul.aboutus {
+    font-family: Avenir;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.0025em;
+    text-align: left;
+    padding-left: 22px;
+    padding-top: 10px;
+}
+.textcontainer ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-family: Avenir;
+    line-height: 20px;
+    letter-spacing: 0.0025em;
+    font-weight: 400;
+    padding-top: 4px;
+    color: #4b5b72;
+}
+
+.centeralign {
+    text-align: center !important;
+}
+
+.textcontainer p.supportText {
+    font-family: Avenir;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.0025em;
+    text-align: center;
+    color: #4b5b72;
+}
+
+.textcontainer.resetpassword p.supportText {
+    text-align: left;
+}
+
+.supportLink {
+    font-family: Avenir;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 19px;
+    letter-spacing: 0.001em;
+    text-align: center;
+    padding-top: 10px;
+    text-decoration: none;
+    color: #784ddd;
+}
+
+.textcontainer ul li span {
+    font-weight: 800;
+    color: #081f40;
+}
+.textcontainer ul li a {
+    color: #8a2be2;
+    display: inline;
+}
+.textcontainer .title.aboutus {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.textcontainer.resetpassword {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.main {
+    text-align: left;
+    padding-bottom: 24px;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+img {
+    margin-bottom: 24px;
+}
+
+#resetButton {
+    margin-top: 30px;
+}
+
+.greenButton {
+    font-family: Avenir;
+    padding: 10px 50px;
+    height: 48px;
+    align-items: center;
+    border-radius: 6px;
+    border: 0px;
+    width: 100%;
+    margin-top: 40px;
+    background-color: #784ddd;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 22px;
+    color: #ffffff;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    text-decoration: none;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+.greenButton.contactUsButton,
+.greenButton.goToAliButton {
+    height: 54px;
+    line-height: 34px;
+    color: #ffffff;
+}
+.greenButton.contactUsButton {
+    margin-top: 24px;
+}
+
+.aboutuspage .greenButton.contactUsButton,
+.supportpage .greenButton.contactUsButton {
+    margin-bottom: 34px;
+}
+
+.greenButton.import {
+    padding: 13px 50px;
+    margin-top: 7px;
+    height: auto;
+}
+
+.needassistance {
+    font-family: Avenir;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 22px;
+    letter-spacing: 0.0015em;
+    text-align: center;
+    color: #784ddd;
+    margin-top: 24px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+#gotoa {
+    margin-top: 16px;
+}
+
+#gotospocket {
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.0015em;
+    text-decoration-line: underline;
+
+    /* primary */
+    color: #784ddd;
+}
+
+.greenButton:disabled {
+    cursor: not-allowed;
+}
+
+.greenButton:hover {
+    background-color: #7240e7;
+}
+
+#header {
+    padding-top: 25px;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+p {
+    font-family: 'Avenir';
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #6f7582;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-family: Avenir;
+    font-size: 24px;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #081f40;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+label {
+    font-family: Avenir;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: normal;
+    color: #081f40;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 4px;
+    margin-top: 28px;
+    display: block;
+}
+
+input,
+select {
+    font-family: Avenir;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: normal;
+    color: #081f40;
+    padding: 8px 13px;
+    background-color: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    display: block;
+}
+
+select {
+    height: 38px;
+}
+
+#poweredBy {
+    text-align: right;
+}
+
+input:active {
+    border: solid 1px #ccd2e1;
+    background-color: #ffffff;
+}
+
+input.invalid {
+    border: solid 1px #e24444;
+}
+
+#close {
+    float: right;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.clearboth {
+    clear: both;
+}
+
+.link {
+    display: inline-block;
+    text-decoration: none;
+    font-family: Avenir;
+    font-size: 14px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 64px;
+    letter-spacing: normal;
+    color: #8144e5;
+}
+
+.footer {
+    width: 100%;
+    height: 64px;
+    text-align: center;
+    display: flex;
+    margin-top: 24px;
+}
+
+.footer .link {
+    flex: auto;
+    padding: 7px 20px;
+    font-family: Avenir;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: 0.0015em;
+    text-align: center;
+    display: block;
+    color: #081f40;
+    background-color: #f2f2f2;
+    margin: 0px 3px;
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    border-radius: 6px;
+    height: 42px;
+}
+
+p.noAliExpress {
+    margin-bottom: 16px;
+}
+
+p.productList {
+    margin-bottom: 40px;
+}
+
+p.boldtext,
+p.warning,
+div.bottomlink {
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    color: #081f40;
+    letter-spacing: 0.0015em;
+    text-align: center;
+    margin-top: 17px;
+}
+
+p.wrongpage {
+    font-family: Avenir;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 27px;
+    letter-spacing: 0.0015em;
+    text-align: center;
+    color: #081f40;
+}
+
+div.bottomlink a {
+    color: #784ddd;
+    display: inline-block;
+    text-align: center;
+}
+
+div.notice {
+    background-color: #fbf8e5;
+    color: #866e42;
+    font-family: Avenir;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.0025em;
+    text-align: left;
+    border-radius: 16px;
+    padding: 12px 16px;
+    display: flex;
+    margin-top: 24px;
+}
+div.notice .imgdiv {
+    flex: auto;
+}
+
+div.notice .txtdiv {
+    flex: auto;
+    height: 100%;
+}
+
+div.notice img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0px;
+    margin-right: 8px;
+}
+
+.icon {
+    margin-bottom: 5px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.errorIcon {
+    margin: 0px 6px 2px;
+    padding: 0px;
+    vertical-align: middle;
+}
+
+.iconAdding {
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+}
+
+.productList span {
+    line-height: 16px;
+    vertical-align: middle;
+}
+
+.productList .icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+}
+
+.productList .greenButton {
+    margin-top: 24px;
+}
+
+.microtext {
+    font-size: 12px;
+}
+
+.separator {
+    height: 1px;
+    background-color: #d8d8d8;
+    border: 0px;
+    padding: 0px;
+    margin-top: 30px;
+}
+
+.textcontainer div.setting .icon {
+    margin-bottom: 4px;
+    margin-right: 12px;
+}
+
+.textcontainer div.setting.drp label {
+    margin-top: 22px;
+}
+
+.textcontainer div.setting.margintop {
+    margin-top: 12px;
+}
+
+.textcontainer div.setting.flexdiv.hideiteminfo {
+    margin-top: 24px;
+    height: 25px;
+}
+
+.textcontainer div.setting.flexdiv {
+    display: flex;
+}
+
+.textcontainer div.setting {
+    display: block;
+    font-family: Avenir;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 22px;
+    letter-spacing: 0.0015em;
+    text-align: left;
+}
+
+.textcontainer div.setting div {
+    flex: auto;
+}
+
+.textcontainer div.setting div:first-child {
+    text-align: left;
+}
+
+.textcontainer div.setting div:last-child {
+    text-align: right;
+}
+
+.toggle-control {
+    all: unset;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    height: 25px;
+    width: 40px;
+}
+
+.toggle-control input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.toggle-control input:checked ~ .control {
+    background-color: #20b94a;
+}
+
+.toggle-control input:checked ~ .control:after {
+    left: 20px;
+}
+
+.toggle-control .control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 40px;
+    border-radius: 12px;
+    background-color: #ccd2e1;
+    -webkit-transition: background-color 0.15s ease-in;
+    transition: background-color 0.15s ease-in;
+}
+
+.toggle-control .control:after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 12px;
+    background: white;
+    -webkit-transition: left 0.15s ease-in;
+    transition: left 0.15s ease-in;
+}
+
+.tooltip {
+    display: none;
+    position: fixed;
+    bottom: 130px;
+    left: 20px;
+    z-index: 2147483646;
+    width: auto;
+    height: 44px;
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(34, 41, 57, 0.1);
+    background-color: #222939;
+    font-family: 'Avenir';
+    font-size: 12px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    white-space: nowrap;
+    height: 19px;
+    line-height: 19px;
+    letter-spacing: 0px;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 13%;
+    margin-left: -7px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.noSingleProduct {
+    margin-bottom: 40px;
+}
+
+.ratingDiv {
+    text-align: center;
+}
+
+.ratingDiv img {
+    margin-bottom: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+}
+
+.ratingDiv a {
+    text-decoration: none;
+    width: 20px;
+    height: 20px;
+    line-height: 22px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ratingDiv span {
+    font-family: Avenir;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0.0015em;
+    text-align: left;
+    color: #000000;
+    margin-right: 12px;
+}
+
+.setting.flexdiv span {
+    font-family: Avenir;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 22px;
+    letter-spacing: 0.0015em;
+    text-align: left;
+    color: #081f40;
+}
+
+.main.bulkimport p {
+    font-family: Avenir;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 27px;
+    letter-spacing: 0.0015em;
+    text-align: center;
+    color: #081f40;
+}
+
+.main.bulkimport p span.purple {
+    color: #784ddd;
+}
+
+.main.bulkimportsuccess img {
+    margin-bottom: 14px;
+    margin-top: 10px;
+}
+
+.main.bulkimport div.progress {
+    margin: 0px auto 24px;
+}
+
+.CircularProgressbar {
+    /*
+     * This fixes an issue where the CircularProgressbar svg has
+     * 0 width inside a "display: flex" container, and thus not visible.
+     */
+    width: 100%;
+    /*
+     * This fixes a centering issue with CircularProgressbarWithChildren:
+     * https://github.com/kevinsqi/react-circular-progressbar/issues/94
+     */
+    vertical-align: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+    stroke: #784ddd;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+    stroke: #e4e4e4;
+    /* Used when trail is not full diameter, i.e. when props.circleRatio is set */
+    stroke-linecap: round;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+    fill: #784ddd;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-background {
+    fill: #e4e4e4;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted
+    .CircularProgressbar-background {
+    fill: #784ddd;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-text {
+    fill: #fff;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-path {
+    stroke: #fff;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-trail {
+    stroke: transparent;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+</style></head>
+
+  <body>
+    <div id="app-container"><div id="container"><div id="header"><div id="logo"><img src="chrome-extension://hdlajobndamjlloioebnannnlbopndee/logo.svg"><img src="chrome-extension://hdlajobndamjlloioebnannnlbopndee/icon-close.svg" id="close"><div class="clearboth"></div></div></div><div><div class="main"><div id="tabmenu" class=""><div class="active" title="Home"><span>Home</span></div><div class="" title="Instructions"><span>Instructions</span></div><div class="" title="Support"><span>Support</span></div><div class="" title="About Us"><span>About us</span></div></div><div class="textcontainer centeralign"><img src="chrome-extension://hdlajobndamjlloioebnannnlbopndee/illu-empty-cart.svg"><p class="wrongpage">Oh, you’re on the wrong page!</p><p class="noSingleProduct centeralign">You can start using the extension when you browse categories or search for products on AliExpress.</p><a target="_blank" class="greenButton contactUsButton" href="https://www.aliexpress.com/">Find Products on AliExpress</a><a target="_blank" class="needassistance" href="https://help.spocket.co/en/articles/4177713-how-does-aliscraper-the-product-importer-for-aliexpress-work">Need Help with AliScraper?</a></div></div></div><div id="poweredBy"><img src="chrome-extension://hdlajobndamjlloioebnannnlbopndee/powered_by.svg"></div></div></div>
+  <script type="text/javascript" src="chrome-extension://hdlajobndamjlloioebnannnlbopndee/popup.bundle.js"></script>
+
+</body></html>
